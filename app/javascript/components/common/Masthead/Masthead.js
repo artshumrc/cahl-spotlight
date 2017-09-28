@@ -41,12 +41,12 @@ const Masthead = props => (
 				</ul>
 
 				<div className="navbar-right navbar-nav nav">
-					<form className="search-query-form clearfix navbar-form" role="search" action="/" accept-charset="UTF-8" method="get">
+					<form className="search-query-form clearfix navbar-form" role="search" action="/" acceptCharset="UTF-8" method="get">
 						<input name="utf8" type="hidden" value="✓" />
 						<input type="hidden" name="exhibit_id" value="cahl" />
 						<div className="input-group">
 							<input type="hidden" name="search_field" id="search_field" value="search" />
-							<label for="q" className="sr-only">search for</label>
+							<label htmlFor="q" className="sr-only">search for</label>
 							<input type="text" name="q" id="q" placeholder="Search..." className="search_q q form-control" data-autocomplete-enabled="false" data-autocomplete-path="/suggest" />
 							<span className="input-group-btn">
 								<button type="submit" className="btn btn-primary search-btn" id="search">
