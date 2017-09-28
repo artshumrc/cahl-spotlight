@@ -19,8 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -52,20 +50,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'blacklight', ' ~> 6.0'
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight'
-group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
-end
-
-gem 'rsolr', '>= 1.0'
-gem 'jquery-rails'
-gem 'devise'
-gem 'devise-guests', '~> 0.6'
-gem 'friendly_id'
-gem 'riiif', '~> 1.0'
-gem 'sitemap_generator'
-gem 'blacklight-gallery', '>= 0.3.0'
-gem 'blacklight-oembed', '>= 0.1.0'
-gem 'devise_invitable'
+gem "react-rails"
+gem "webpacker"
+# gem 'blacklight-spotlight', github: 'projectblacklight/spotlight'
