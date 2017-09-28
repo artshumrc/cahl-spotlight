@@ -7,7 +7,6 @@ Spotlight.onLoad(function(){
       if ( !data.error ) {
         var collection = data.collection;
         if ( collection ) {
-          collection_target.append('<dt>Collection:</dt><dd><a href="<%= Settings.searchworks.link.prefix %>' + collection.id + '">' + collection.title + '</a></dd>') 
         }
         container.show();
       }

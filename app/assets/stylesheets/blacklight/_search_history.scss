@@ -1,0 +1,10 @@
+/* Search History */
+.search-history {
+  .constraint {
+    display: block;
+  }
+
+  .filter-name, .filter-separator {
+    @extend .text-muted;
+  }
+}

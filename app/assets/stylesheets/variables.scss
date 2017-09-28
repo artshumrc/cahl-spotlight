@@ -2,6 +2,7 @@
 @import "sul-styles";
 
 $gray-base: #000;
+$gray-100: #f8f9fa;
 
 $sul-masthead-bg-color: $color-beige-10;
 $sul-masthead-border-color: $color-beige-20;
@@ -53,3 +54,14 @@ $breadcrumb-bg: transparent;
 $breadcrumb-padding-vertical: $padding-base-vertical;
 
 $nav-link-padding: $padding-base-vertical $padding-base-horizontal;
+
+$caret-width: 8px;
+$pagination-border-width: 1px;
+$pagination-border-color: #eee;
+$spacer: 10px;
+$input-btn-padding-y: 15px;
+$input-btn-padding-x: 5px;
+
+$navbar-light-toggler-border-color: #eee;
+$navbar-light-active-color: #eee;
+$navbar-light-toggler-icon-bg: #eee;
