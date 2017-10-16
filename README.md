@@ -1,24 +1,6 @@
-# README
+# CAHL Spotlight / React application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+React frontend based off of the Orphe.us codebase: http://gitlab.archimedes.digital/archimedes/orpheus
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails application running Ruby 2.4.1 and Rails 5.1.4.
