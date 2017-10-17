@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Masthead = props => (
 	<div className="masthead image-masthead ">
@@ -32,11 +33,13 @@ const Masthead = props => (
 					</li>
 
 					<li className="">
-						<a href="/">Explore</a>
+						<Link to="/explore">Explore</Link>
+						{/* <a href="/explore">Explore</a> */}
 					</li>
 
 					<li className="">
-						<a href="/about">About</a>
+						<Link to="/about">About</Link>
+						{/* <a href="/about">About</a> */}
 					</li>
 				</ul>
 
