@@ -26,9 +26,8 @@ const Masthead = props => (
 							Collection <b className="caret" />
 						</a>
 						<ul className="dropdown-menu">
-							<li>
-								<a href="/">Collection</a>
-							</li>
+								<Link to="/browse">Collection</Link>
+								{/* <a href="/browse">Collection</a> */}
 						</ul>
 					</li>
 
