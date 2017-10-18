@@ -36,40 +36,44 @@ const About = props => (
 
           <ol className="nav sidenav contacts">
 
-            <li itemscope="" itemtype="http://schema.org/Person">
-              <img className="contact-photo" src="https://exhibits.stanford.edu/images/2219/8,23,312,312/70,70/0/default.jpg" alt="Default"/>
-              <div itemprop="name" className="name">Virginie Greene</div>
-              <div itemprop="jobTitle">
+            <li itemScope="" itemType="http://schema.org/Person">
+              <img className="contact-photo" src="https://s3.us-east-2.amazonaws.com/cahl-profile-photos/vgreene.jpg" alt="Default"/>
+              <div itemProp="name" className="name">Virginie Greene</div>
+              <div itemProp="jobTitle">
                 Job Title
               </div>
-              <div itemprop="workLocation">
+              <div itemProp="workLocation">
                 Work Location
               </div>
-              <div itemprop="email">
+              <div itemProp="email">
                 <a href="mailto:example@email.com">example@email.com</a>
               </div>
             </li>
 
-            <li itemscope="" itemtype="http://schema.org/Person">
-              <img className="contact-photo" src="https://exhibits.stanford.edu/images/2241/8,116,848,848/70,70/0/default.jpg" alt="Default"/>
-              <div itemprop="name" className="name">Nicole Mills</div>
-              <div itemprop="jobTitle">
+            <li itemScope="" itemType="http://schema.org/Person">
+              <img className="contact-photo" src="https://s3.us-east-2.amazonaws.com/cahl-profile-photos/nicolemills.jpg" alt="Default"/>
+              <div itemProp="name" className="name">Nicole Mills</div>
+              <div itemProp="jobTitle">
                 Job Title
               </div>
-              <div itemprop="workLocation">
+              <div itemProp="workLocation">
                 Work Location
               </div>
-              <div itemprop="email">
+              <div itemProp="email">
                 <a href="mailto:example@email.com">example@email.com</a>
               </div>
             </li>
-            <li itemscope="" itemtype="http://schema.org/Person">
-              <div itemprop="name" className="name">Lidia Uziel</div>
-              <div itemprop="jobTitle">
+            <li itemScope="" itemType="http://schema.org/Person">
+              <img className="contact-photo" src="https://s3.us-east-2.amazonaws.com/cahl-profile-photos/Lidia_pic.jpg" alt="Default"/>
+              <div itemProp="name" className="name">Lidia Uziel</div>
+              <div itemProp="jobTitle">
                 Job Title
               </div>
-              <div itemprop="workLocation">
+              <div itemProp="workLocation">
                 Work Location
+              </div>
+              <div itemProp="email">
+                <a href="mailto:example@email.com">example@email.com</a>
               </div>
             </li>
           </ol>
