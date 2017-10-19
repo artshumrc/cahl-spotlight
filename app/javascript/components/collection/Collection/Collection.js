@@ -47,9 +47,9 @@ const Collection = props => {
 									50 per page <span className="caret"></span>
 								</button>
 								<ul className="dropdown-menu" role="menu">
-									<li><a href="/cahl/browse/">50<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">10<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">20<span className="sr-only"> per page</span></a></li>
+									<li><a href="/cahl/browse/">50<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">100<span className="sr-only"> per page</span></a></li>
 								</ul>
 							</div>

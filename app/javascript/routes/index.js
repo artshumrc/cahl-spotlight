@@ -19,7 +19,7 @@ export default (
 		<Route exact path="/" component={Home} />
 		<Route exact path="/about" component={About} />
 		<Route exact path="/explore" component={Explore} />
-		<Route exact path="/browse" component={Collection} />
+		<Route exact path="/cahl/browse" component={Collection} />
 		{/* Routes for GraphiQL */}
 		{graphiqlRoutes}
 	</div>
