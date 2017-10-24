@@ -80,7 +80,7 @@ const Collection = props => {
 							<div key={`${item.name.namePart}-${i}`} className="masonry document col-xs-6 col-md-3" >
 								<div className="thumbnail">
 									{item.relatedItem.location ?
-										<a data-context-href="/catalog/" href="/cahl/catalog/">
+										<a data-context-href="/catalog/" href={`/cahl/catalog/${item.recordInfo.recordIdentifier['#text']}`}>
 											<img src={item.relatedItem.location[0].url[1]['#text']} alt="Default" />
 										</a>
 									: ''}
