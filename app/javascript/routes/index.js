@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router';
 import Home from '../components/home/Home/Home.js';
 import About from '../components/about/About/About.js';
 import Explore from '../components/explore/Explore/Explore.js';
-import Collection from '../components/collection/Collection/Collection.js';
+import Browse from '../components/browse/Browse/Browse.js'
 
 // GraphiQL browser UI for testing API
 import graphiqlRoutes from '../modules/graphiql/routes';
@@ -19,7 +19,7 @@ export default (
 		<Route exact path="/" component={Home} />
 		<Route exact path="/about" component={About} />
 		<Route exact path="/explore" component={Explore} />
-		<Route exact path="/cahl/browse" component={Collection} />
+		<Route exact path="/cahl/browse" component={Browse} />
 		{/* Routes for GraphiQL */}
 		{graphiqlRoutes}
 	</div>
