@@ -76,7 +76,7 @@ const Collection = props => {
 							</div>
 						</div>
 					</div>
-					<div id="documents" className="row collectionItems" data-behavior="masonry-gallery">
+					<div id="documents" className="row collectionItems">
 						<Bricks items={collectionItems} />
 					</div>
 
