@@ -3,7 +3,14 @@ import React from 'react';
 import SpotlightLayout from '../../layouts/SpotlightLayout';
 import Collection from '../../collection/Collection';
 
-const Item = props => (
+const Item = props => {
+
+  let item = props.item
+  if ( !item ) {
+    return null
+  }
+
+  return (
 	<SpotlightLayout>
 		<div className="itemShow" >
       <div id="main-container" class="container">
@@ -115,7 +122,7 @@ const Item = props => (
         </div>
       </div>
 		</div>
-	</SpotlightLayout>
-);
+	</SpotlightLayout>)
+};
 
 export default Item;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Bricks from '../../bricks/Bricks/Bricks.js';
 
 const Collection = props => {
 	let collectionItems = [];
@@ -76,22 +77,7 @@ const Collection = props => {
 						</div>
 					</div>
 					<div id="documents" className="row collectionItems" data-behavior="masonry-gallery">
-						{collectionItems.map((item, i) => (
-							<div key={`${item.name.namePart}-${i}`} className="masonry document col-xs-6 col-md-3" >
-								<div className="thumbnail">
-									{item.relatedItem.location ?
-										<a data-context-href="/catalog/" href={`/cahl/catalog/${item.recordInfo.recordIdentifier['#text']}`}>
-											<img src={item.relatedItem.location[0].url[1]['#text']} alt="Default" />
-										</a>
-									: ''}
-									<div className="caption">
-										<a data-context-href="/catalog/" href="/cahl/catalog/">
-											{item.name.namePart}
-										</a>
-									</div>
-								</div>
-							</div>
-						))}
+						<Bricks items={collectionItems} />
 					</div>
 
 					<div className="row record-padding">

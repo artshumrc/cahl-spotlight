@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "babel-preset-react": "^6.24.1",
+    "bricks.js": "^1.8.0",
     "es6-shim": "^0.35.3",
     "graphiql": "^0.11.5",
     "hellojs": "^1.15.1",
