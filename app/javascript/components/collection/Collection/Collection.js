@@ -77,7 +77,10 @@ const Collection = props => {
 						</div>
 					</div>
 					<div id="documents" className="row collectionItems">
-						<Bricks items={collectionItems} />
+						<Bricks
+							items={collectionItems}
+							loaded
+						/>
 					</div>
 
 					<div className="row record-padding">

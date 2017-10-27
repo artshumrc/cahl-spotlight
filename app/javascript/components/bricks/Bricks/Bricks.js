@@ -1,6 +1,5 @@
 import React from 'react';
 import Bricks from 'bricks.js';
-// import styles from './Bricks.scss';
 
 
 
@@ -52,7 +51,7 @@ class _Bricks extends React.Component {
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>
         <div className="bricks-inner">
         {items.map((item, i) => (
-          <div key={`${item.name.namePart}-${i}`} className="masonry document col-xs-6 col-md-3" >
+          <div key={`${item.name.namePart}-${i}`} className="brick" >
           	<div className="thumbnail">
           		{item.relatedItem.location ?
           			<a data-context-href="/catalog/" href={`/cahl/catalog/${item.recordInfo.recordIdentifier['#text']}`}>
