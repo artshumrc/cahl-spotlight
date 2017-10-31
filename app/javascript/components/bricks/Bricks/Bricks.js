@@ -45,7 +45,7 @@ class _Bricks extends React.Component {
 					return (
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
-								{imgSrc ? 
+								{imgSrc ?
 	          			<a data-context-href="/catalog/" href={`/cahl/catalog/${recordIdentifier}`}>
 	          				<img src={imgSrc} alt="Default" />
 	          			</a>

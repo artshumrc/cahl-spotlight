@@ -1,8 +1,3 @@
-// This component is not yet functional or linked to the GraphQL API, it will be used
-// as a rubric until the CAHL-GraphQL API is complete.
-
-
-
 import React, { PropTypes } from 'react';
 
 const propTypes = {
