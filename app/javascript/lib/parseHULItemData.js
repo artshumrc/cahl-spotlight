@@ -33,6 +33,7 @@ const getHULItemName = HULItem => {
 const getHULItemRecordIdentifier = HULItem => {
 	let recordIdentifier = '';
 
+	recordIdentifier = HULItem.recordInfo.recordIdentifier['#text'];
 
 	return recordIdentifier;
 };

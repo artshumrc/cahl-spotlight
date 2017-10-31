@@ -44,8 +44,8 @@ class _Bricks extends React.Component {
         {items.map((item, i) => {
 					const name = getHULItemName(item);
 					const recordIdentifier = getHULItemRecordIdentifier(item);
-					const imgSrc = getHULItemRecordIdentifier(item);
-					console.log('name', name);
+					const imgSrc = getHULItemImgSrc(item);
+					console.log('recordIdentifier', recordIdentifier);
 
 					return (
 	          <div key={`${name}-${i}`} className="brick" >
