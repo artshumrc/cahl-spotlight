@@ -35,9 +35,6 @@ class _Bricks extends React.Component {
 	 	let bricks = this.props.children;
 		const { loaded, items } = this.props;
 
-    console.log(items);
-
-
 		return (
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>
         <div className="bricks-inner">
@@ -45,14 +42,14 @@ class _Bricks extends React.Component {
 					const name = getHULItemName(item);
 					const recordIdentifier = getHULItemRecordIdentifier(item);
 					const imgSrc = getHULItemImgSrc(item);
-					console.log('recordIdentifier', recordIdentifier);
-
 					return (
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
-          			<a data-context-href="/catalog/" href={`/cahl/catalog/${recordIdentifier}`}>
-          				<img src={imgSrc} alt="Default" />
-          			</a>
+								{imgSrc ? 
+	          			<a data-context-href="/catalog/" href={`/cahl/catalog/${recordIdentifier}`}>
+	          				<img src={imgSrc} alt="Default" />
+	          			</a>
+								: ''}
 	          		<div className="caption">
 	          			<a data-context-href="/catalog/" href="/cahl/catalog/">
 	          				{name}

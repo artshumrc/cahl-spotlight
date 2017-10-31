@@ -40,8 +40,16 @@ const getHULItemRecordIdentifier = HULItem => {
 
 
 const getHULItemImgSrc = HULItem => {
-	let imgSrc = '';
-	// item.relatedItem.location[0].url[1]['#text']
+	let imgSrc = false;
+
+	if (HULItem.relatedItem
+		&& HULItem.relatedItem.location
+		&& HULItem.relatedItem.location.length
+		&& HULItem.relatedItem.location[0].url
+		&& HULItem.relatedItem.location[0].url.length > 1
+	) {
+		HULItem.relatedItem.location[0].url[1]['#text']
+	}
 
 
 	return imgSrc;
