@@ -11,7 +11,7 @@ class Collection extends React.Component {
 		// 	collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
 		// }
 
-		let collectionItems = _.range(1, 4856).map(i => {
+		let collectionItems = _.range(1, 4857).map(i => {
 			return { id: i, name: 'Item ' + i };
 		});
 
@@ -95,7 +95,7 @@ class Collection extends React.Component {
 							<Pagination items={this.state.collectionItems} onChangePage={this.onChangePage} />
 						</div>
 
-						<div className="row record-padding">
+						{/* <div className="row record-padding">
 							<div className="col-md-12">
 								<div className="pagination">
 									<ul className="pagination">
@@ -129,7 +129,7 @@ class Collection extends React.Component {
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
