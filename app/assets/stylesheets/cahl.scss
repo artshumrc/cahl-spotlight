@@ -37,6 +37,7 @@
 	border: 6px solid transparent;
 	outline: 1px solid transparent;
 	@include transition(all 100ms linear);
+  width: 200px;
 
 	&:hover {
 		outline: 1px solid $divider;

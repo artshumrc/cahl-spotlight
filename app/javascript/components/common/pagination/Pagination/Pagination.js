@@ -1,7 +1,6 @@
 // This component is not yet functional or linked to the GraphQL API, it will be used
 // as a rubric until the CAHL-GraphQL API is complete.
-//
-// If you have any questions or concerns, let me know!!
+
 
 
 import React, { PropTypes } from 'react';
