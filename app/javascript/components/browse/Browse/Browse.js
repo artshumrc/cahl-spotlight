@@ -4,22 +4,24 @@ import SpotlightLayout from '../../layouts/SpotlightLayout';
 import CollectionContainer from '../../../containers/CollectionContainer';
 
 class Browse extends React.Component {
-
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			sortBy: 'title',
+			sortBy: 'recordIdentifier',
 			limit: 50,
 		};
+
+		this.handleSortByChange = this.handleSortByChange.bind(this)
+		this.handleLimitChange = this.handleLimitChange.bind(this)
 	}
 
 	handleSortByChange(newVal) {
-
+		this.setState({ sortBy: newVal })
 	}
 
 	handleLimitChange(newVal) {
-
+		this.setState({ limit: newVal })
 	}
 
 	render() {
@@ -35,6 +37,7 @@ class Browse extends React.Component {
 				</div>
 			</SpotlightLayout>
 		);
+	}
 }
 
 export default Browse;

@@ -1,17 +1,25 @@
 import { gql, graphql } from 'react-apollo';
 
 const query = gql`
-	query HULItems {
-	  HULItems {
+	query HULItems($limit: Int, $sortBy: String) {
+	  HULItems(limit: $limit, sortBy: $sortBy) {
 			pagination
 			items
+
 	  }
 	}
 `;
 
 
+
 const HULItemsQuery = graphql(query, {
 	name: 'HULItemsQuery',
+	options: (props) => ({
+		variables: {
+			limit: props.limit,
+			sortBy: props.sortBy,
+		}
+	})
 });
 
 

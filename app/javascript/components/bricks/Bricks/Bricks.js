@@ -34,21 +34,23 @@ class _Bricks extends React.Component {
 	 	let bricks = this.props.children;
 		const { loaded, items } = this.props;
 
+    console.log(items);
+
 
 		return (
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>
         <div className="bricks-inner">
         {items.map((item, i) => (
-          <div key={`${item.name.namePart}-${i}`} className="brick" >
+          <div key={`${item.name ? item.name.namePart : ''}-${i}`} className="brick" >
           	<div className="thumbnail">
-          		{item.relatedItem.location ?
+          		{item.relatedItem && item.relatedItem.location ?
           			<a data-context-href="/catalog/" href={`/cahl/catalog/${item.recordInfo.recordIdentifier['#text']}`}>
           				<img src={item.relatedItem.location[0].url[1]['#text']} alt="Default" />
           			</a>
           		: ''}
           		<div className="caption">
           			<a data-context-href="/catalog/" href="/cahl/catalog/">
-          				{item.name.namePart}
+          				{item.name ? item.name.namePart : ''}
           			</a>
           		</div>
           	</div>

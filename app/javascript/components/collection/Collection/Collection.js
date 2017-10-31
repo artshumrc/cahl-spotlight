@@ -1,12 +1,14 @@
 import React from 'react';
 import Bricks from '../../bricks/Bricks/Bricks.js';
 
-const Collection = props => {
+class Collection extends React.Component {
+	render() {
 	let collectionItems = [];
 
-	if (props.HULItemsQuery.HULItems) {
-		collectionItems = props.HULItemsQuery.HULItems.items.mods;
+	if (this.props.HULItemsQuery.HULItems) {
+		collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
 	}
+
 
 	return (
 		<div id="main-container" className="container">
@@ -36,19 +38,19 @@ const Collection = props => {
 								</button>
 
 								<ul className="dropdown-menu" role="menu">
+									<li><a href="/cahl/browse/">title</a></li>
+									<li><a href="/cahl/browse/">author</a></li>
 									<li><a href="/cahl/browse/">year (new to old)</a></li>
 									<li><a href="/cahl/browse/">year (old to new)</a></li>
-									<li><a href="/cahl/browse/">author</a></li>
-									<li><a href="/cahl/browse/">title</a></li>
 								</ul>
 							</div>
 							<span className="sr-only">Number of results to display per page</span>
 							<div id="per_page-dropdown" className="btn-group">
 								<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									50 per page <span className="caret"></span>
+									Results per page <span className="caret"></span>
 								</button>
 								<ul className="dropdown-menu" role="menu">
-									<li><a href="/cahl/browse/">10<span className="sr-only"> per page</span></a></li>
+									<li onClick={this.props.handleLimitChange.bind(this, 10)}>10<span className="sr-only"> per page</span></li>
 									<li><a href="/cahl/browse/">20<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">50<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">100<span className="sr-only"> per page</span></a></li>
@@ -103,6 +105,7 @@ const Collection = props => {
 			</div>
 		</div>
 	);
+}
 }
 
 export default Collection;
