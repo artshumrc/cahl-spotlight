@@ -1,5 +1,6 @@
 import React from 'react';
 import Bricks from '../../bricks/Bricks/Bricks.js';
+import 
 
 class Collection extends React.Component {
 	render() {
