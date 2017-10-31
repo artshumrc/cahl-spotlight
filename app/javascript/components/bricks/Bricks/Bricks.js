@@ -1,6 +1,7 @@
 import React from 'react';
 import Bricks from 'bricks.js';
 
+import { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc } from '../../../lib/parseHULItemData';
 
 
 class _Bricks extends React.Component {
@@ -40,22 +41,27 @@ class _Bricks extends React.Component {
 		return (
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>
         <div className="bricks-inner">
-        {items.map((item, i) => (
-          <div key={`${item.name ? item.name.namePart : ''}-${i}`} className="brick" >
-          	<div className="thumbnail">
-          		{item.relatedItem && item.relatedItem.location ?
-          			<a data-context-href="/catalog/" href={`/cahl/catalog/${item.recordInfo.recordIdentifier['#text']}`}>
-          				<img src={item.relatedItem.location[0].url[1]['#text']} alt="Default" />
+        {items.map((item, i) => {
+					const name = getHULItemName(item);
+					const recordIdentifier = getHULItemRecordIdentifier(item);
+					const imgSrc = getHULItemRecordIdentifier(item);
+					console.log('name', name);
+
+					return (
+	          <div key={`${name}-${i}`} className="brick" >
+	          	<div className="thumbnail">
+          			<a data-context-href="/catalog/" href={`/cahl/catalog/${recordIdentifier}`}>
+          				<img src={imgSrc} alt="Default" />
           			</a>
-          		: ''}
-          		<div className="caption">
-          			<a data-context-href="/catalog/" href="/cahl/catalog/">
-          				{item.name ? item.name.namePart : ''}
-          			</a>
-          		</div>
-          	</div>
-          </div>
-        ))}
+	          		<div className="caption">
+	          			<a data-context-href="/catalog/" href="/cahl/catalog/">
+	          				{name}
+	          			</a>
+	          		</div>
+	          	</div>
+	          </div>
+	        )
+				})}
         </div>
 			</div>
 		);

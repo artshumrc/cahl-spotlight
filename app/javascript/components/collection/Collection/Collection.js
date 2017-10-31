@@ -51,7 +51,7 @@ class Collection extends React.Component {
 									Results per page <span className="caret"></span>
 								</button>
 								<ul className="dropdown-menu" role="menu">
-									<li onClick={this.props.handleLimitChange.bind(this, 10)}>10<span className="sr-only"> per page</span></li>
+									<li>10<span className="sr-only"> per page</span></li>
 									<li><a href="/cahl/browse/">20<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">50<span className="sr-only"> per page</span></a></li>
 									<li><a href="/cahl/browse/">100<span className="sr-only"> per page</span></a></li>
