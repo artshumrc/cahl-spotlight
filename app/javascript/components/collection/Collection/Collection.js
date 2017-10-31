@@ -19,6 +19,7 @@ const Collection = props => {
 			</div>
 
 			<div className="row">
+				{/* search result amount shouldn't be hardcoded */}
 				<div className="col-md-12">
 					<h1>
 						Collection
@@ -55,6 +56,7 @@ const Collection = props => {
 								</ul>
 							</div>
 							<div className="view-type">
+								{/* Display types, different JSX components */}
 								<span className="sr-only"></span>
 								<div className="view-type-group btn-group">
 									<a title="List" className="btn btn-default view-type-list " href="/cahl/browse/">
@@ -66,9 +68,13 @@ const Collection = props => {
 									<a title="Map" className="btn btn-default view-type-heatmaps " href="/cahl/browse/">
 										<span className="glyphicon glyphicon-heatmaps view-icon-heatmaps"></span>
 									</a>
+
+									{/* redisplay results w/Bricks */}
 									<a title="Masonry" className="btn btn-default view-type-masonry active" href="/cahl/browse/">
 										<span className="glyphicon glyphicon-masonry view-icon-masonry"></span>
 									</a>
+
+									{/* Pagination, 1-by-1 */}
 									<a title="Slideshow" className="btn btn-default view-type-slideshow " href="/cahl/browse/">
 										<span className="glyphicon glyphicon-slideshow view-icon-slideshow"></span>
 									</a>
