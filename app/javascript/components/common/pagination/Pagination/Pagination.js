@@ -2,138 +2,109 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const propTypes = {
-    items: PropTypes.array.isRequired,
-    onChangePage: PropTypes.func.isRequired,
-    initialPage: PropTypes.number
+	items: PropTypes.array.isRequired,
+	onChangePage: PropTypes.func.isRequired,
+	initialPage: PropTypes.number
 }
 
 const defaultProps = {
-    initialPage: 1
+	initialPage: 1
 }
 
 class Pagination extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { pager: {} };
-    }
+	constructor(props) {
+		super(props);
+	}
 
-    componentWillMount() {
-        // set page if items array isn't empty
-        if (this.props.items && this.props.items.length) {
-            this.setPage(this.props.initialPage);
-        }
-    }
+	getPager(totalItems, currentPage, pageSize) {
+		// default to first page
+		currentPage = currentPage || this.props.currentPage;
 
-    componentDidUpdate(prevProps, prevState) {
-        // reset page if items array has changed
-        if (this.props.items !== prevProps.items) {
-            this.setPage(this.props.initialPage);
-        }
-    }
+		// default page size is 10
+		pageSize = pageSize || 10;
 
-    setPage(page) {
-        let items = this.props.items;
-        let pager = this.state.pager;
+		// calculate total pages
+		let totalPages = Math.ceil(totalItems / pageSize);
 
-        if (page < 1 || page > pager.totalPages) {
-            return;
-        }
+		let startPage, endPage;
+		if (totalPages <= 10) {
+			// less than 10 total pages so show all
+			startPage = 1;
+			endPage = totalPages;
+		} else {
+			// more than 10 total pages so calculate start and end pages
+			if (currentPage <= 6) {
+				startPage = 1;
+				endPage = 10;
+			} else if (currentPage + 4 >= totalPages) {
+				startPage = totalPages - 9;
+				endPage = totalPages;
+			} else {
+				startPage = currentPage - 5;
+				endPage = currentPage + 4;
+			}
+		}
 
-        // get new pager object for specified page
-        pager = this.getPager(items.length, page);
+		// calculate start and end item indexes
+		let startIndex = (currentPage - 1) * pageSize;
+		let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
-        // get new page of items from items array
-        let pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
+		// create an array of pages to ng-repeat in the pager control
+		let pages = _.range(startPage, endPage + 1);
 
-        // update state
-        this.setState({ pager: pager });
+		// return object with all pager properties required by the view
+		return {
+			totalItems,
+			currentPage,
+			pageSize,
+			totalPages,
+			startPage,
+			endPage,
+			startIndex,
+			endIndex,
+			pages,
+		};
+	}
 
-        // call change page function in parent component
-        this.props.onChangePage(pageOfItems);
-    }
+	render() {
 
-    getPager(totalItems, currentPage, pageSize) {
-        // default to first page
-        currentPage = currentPage || 1;
+		// create pages on each render
+		let items = this.props.items;
+		let pager = {};
 
-        // default page size is 10
-        pageSize = pageSize || 10;
+		// get new pager object for specified page
+		pager = this.getPager(items.length, this.props.currentPage);
 
-        // calculate total pages
-        let totalPages = Math.ceil(totalItems / pageSize);
+		if (!pager.pages || pager.pages.length <= 1) {
 
-        let startPage, endPage;
-        if (totalPages <= 10) {
-            // less than 10 total pages so show all
-            startPage = 1;
-            endPage = totalPages;
-        } else {
-            // more than 10 total pages so calculate start and end pages
-            if (currentPage <= 6) {
-                startPage = 1;
-                endPage = 10;
-            } else if (currentPage + 4 >= totalPages) {
-                startPage = totalPages - 9;
-                endPage = totalPages;
-            } else {
-                startPage = currentPage - 5;
-                endPage = currentPage + 4;
-            }
-        }
+		  // don't display pager if there is only 1 page
+		  return null;
+		}
 
-        // calculate start and end item indexes
-        let startIndex = (currentPage - 1) * pageSize;
-        let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
-
-        // create an array of pages to ng-repeat in the pager control
-        let pages = _.range(startPage, endPage + 1);
-
-        // return object with all pager properties required by the view
-        return {
-            totalItems: totalItems,
-            currentPage: currentPage,
-            pageSize: pageSize,
-            totalPages: totalPages,
-            startPage: startPage,
-            endPage: endPage,
-            startIndex: startIndex,
-            endIndex: endIndex,
-            pages: pages
-        };
-    }
-
-    render() {
-        let pager = this.state.pager;
-
-        if (!pager.pages || pager.pages.length <= 1) {
-            // don't display pager if there is only 1 page
-            return null;
-        }
-
-        return (
-            <ul className="pagination">
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <Link to="/page/1">First</Link>
-                </li>
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <Link to={`/page/${pager.currentPage -1}`}>Previous</Link>
-                </li>
-                {pager.pages.map((page, index) =>
-                    <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <Link to={`/page/${page}`}>{page}</Link>
-                    </li>
-                )}
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <Link to={`/page/${pager.currentPage + 1}`}>Next</Link>
-                </li>
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <Link to={`/page/${pager.totalPages}`}>Last</Link>
-                </li>
-            </ul>
-        );
-    }
+		return (
+			<ul className="pagination">
+				<li className={pager.currentPage === 1 ? 'disabled' : ''}>
+					<Link to="/page/1">First</Link>
+				</li>
+				<li className={pager.currentPage === 1 ? 'disabled' : ''}>
+					<Link to={`/page/${pager.currentPage -1}`}>Previous</Link>
+				</li>
+				{pager.pages.map((page, index) =>
+					<li key={index} className={pager.currentPage === page ? 'active' : ''}>
+						<Link to={`/page/${page}`}>{page}</Link>
+					</li>
+				)}
+				<li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+					<Link to={`/page/${pager.currentPage + 1}`}>Next</Link>
+				</li>
+				<li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+					<Link to={`/page/${pager.totalPages}`}>Last</Link>
+				</li>
+			</ul>
+		);
+	}
 }
 
 Pagination.propTypes = propTypes;
-Pagination.defaultProps
+
 export default Pagination;

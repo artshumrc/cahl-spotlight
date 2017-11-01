@@ -92,7 +92,11 @@ class Collection extends React.Component {
 							{this.state.pageOfItems.map(item =>
 							<div key={item.id}>{item.name}</div>
 							)}
-							<Pagination items={this.state.collectionItems} onChangePage={this.onChangePage} />
+							<Pagination
+								items={this.state.collectionItems}
+								onChangePage={this.onChangePage}
+								currentPage={parseInt(this.props.currentPage, 10)}
+							/>
 						</div>
 
 						{/* <div className="row record-padding">

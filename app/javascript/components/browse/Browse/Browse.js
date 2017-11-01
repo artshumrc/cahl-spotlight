@@ -25,8 +25,8 @@ class Browse extends React.Component {
 	}
 
 	render() {
-
-		const start = (this.props.pageN - 1) * this.state.limit;
+		let pageN = this.props.params.pageN || 1;
+		const start = (parseInt(pageN, 10) - 1) * this.state.limit;
 
 		return (
 			<SpotlightLayout>
@@ -37,15 +37,12 @@ class Browse extends React.Component {
 						sortBy={this.state.sortBy}
 						limit={this.state.limit}
 						start={start}
+						currentPage={pageN}
 					/>
 				</div>
 			</SpotlightLayout>
 		);
 	}
 }
-
-Browse.defaultProps = {
-	pageN: 1,
-};
 
 export default Browse;
