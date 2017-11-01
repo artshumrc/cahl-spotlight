@@ -4,11 +4,11 @@ import SpotlightLayout from '../../layouts/SpotlightLayout';
 import Collection from '../../collection/Collection';
 
 const Item = props => {
-
+  console.log(this.props)
   let item = props.item
-  if ( !item ) {
-    return null
-  }
+  // if ( !item ) {
+  //   return null
+  // }
 
   return (
 	<SpotlightLayout>

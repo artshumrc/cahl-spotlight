@@ -10,6 +10,10 @@ class _Bricks extends React.Component {
 		super(props);
 	}
 
+	// componentWillUpdate() {
+	// 	this.initializeBricks();
+	// }
+
 	componentDidMount() {
 		this.initializeBricks();
 	}
@@ -32,8 +36,15 @@ class _Bricks extends React.Component {
 
 
 	render() {
-	 	let bricks = this.props.children;
+		let bricks = this.props.children;
 		const { loaded, items } = this.props;
+
+		setTimeout( () => {
+			if (this.instance) {
+				this.instance.pack();
+			}
+		}, 100);
+
 
 		return (
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>

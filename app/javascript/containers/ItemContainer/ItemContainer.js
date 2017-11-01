@@ -6,7 +6,6 @@ import Item from '../../components/item/Item/Item.js';
 
 class ItemContainer extends React.Component {
 	render() {
-		console.log(this.props)
 		return (
 			<Item { ...this.props } />
 		);
