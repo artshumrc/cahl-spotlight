@@ -39,8 +39,12 @@ const singlequery = graphql(gql`
 
 	name: 'singleItemQuery',
 	props: props => {
+		let item;
+		if (props.singleItemQuery.HULItem) {
+			item = props.singleItemQuery.HULItem.items.mods;
+		}
 		return {
-			HULItem: props.singleItemQuery.HULItem,
+			item,
 		};
 	},
 });
