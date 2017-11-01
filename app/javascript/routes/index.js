@@ -19,12 +19,9 @@ export default (
 	<div>
 		{/* Normal home landing page */}
 		<Route exact path="/" component={Browse} />
-<<<<<<< HEAD
-=======
 		<Route exact path="/page/:pageN" component={Browse} />
 		<Route exact path="/catalog/:recordIdentifier" component={ItemContainer} />
 
->>>>>>> c9ff394696e799ab2b17cda0b86685262498b64a
 		<Route exact path="/about" component={About} />
 		<Route exact path="/explore" component={Explore} />
 

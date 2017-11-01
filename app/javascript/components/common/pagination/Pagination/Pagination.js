@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const propTypes = {
     items: PropTypes.array.isRequired,
@@ -112,21 +113,21 @@ class Pagination extends React.Component {
         return (
             <ul className="pagination">
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(1)}>First</a>
+                    <Link to="/page/1">First</Link>
                 </li>
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+                    <Link to={`/page/${pager.currentPage -1}`}>Previous</Link>
                 </li>
                 {pager.pages.map((page, index) =>
                     <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a onClick={() => this.setPage(page)}>{page}</a>
+                        <Link to={`/page/${page}`}>{page}</Link>
                     </li>
                 )}
                 <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
+                    <Link to={`/page/${pager.currentPage + 1}`}>Next</Link>
                 </li>
                 <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
+                    <Link to={`/page/${pager.totalPages}`}>Last</Link>
                 </li>
             </ul>
         );

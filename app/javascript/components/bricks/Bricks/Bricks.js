@@ -46,12 +46,12 @@ class _Bricks extends React.Component {
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
 								{imgSrc ?
-	          			<a data-context-href="/catalog/" href={`/cahl/catalog/${recordIdentifier}`}>
+	          			<a data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
 	          				<img src={imgSrc} alt="Default" />
 	          			</a>
 								: ''}
 	          		<div className="caption">
-	          			<a data-context-href="/catalog/" href="/cahl/catalog/">
+	          			<a data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
 	          				{name}
 	          			</a>
 	          		</div>
