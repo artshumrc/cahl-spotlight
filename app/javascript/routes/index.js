@@ -18,11 +18,13 @@ import SpotlightLayout from '../components/layouts/SpotlightLayout';
 export default (
 	<div>
 		{/* Normal home landing page */}
-		<Route exact path="/" component={Home} />
+		<Route exact path="/" component={Browse} />
+		<Route exact path="/page/:pageN" component={Browse} />
+		<Route exact path="/catalog/:recordIdentifier" component={ItemContainer} />
+
 		<Route exact path="/about" component={About} />
 		<Route exact path="/explore" component={Explore} />
-		<Route exact path="/cahl/browse" component={Browse} />
-		<Route exact path="/cahl/catalog/:recordIdentifier" component={ItemContainer} />
+
 		{/* Routes for GraphiQL */}
 		{graphiqlRoutes}
 	</div>

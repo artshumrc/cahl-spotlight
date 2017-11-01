@@ -19,17 +19,19 @@ const Masthead = props => (
 			<div className="container">
 				<ul className="nav navbar-nav">
 					<li className="active">
-						<a href="/">Home</a>
+						<Link to="/">Home</Link>
 					</li>
+
+					{/*
 					<li className="dropdown">
 						<a href="#" className="dropdown-toggle" data-toggle="dropdown">
 							Collection <b className="caret" />
 						</a>
 						<ul className="dropdown-menu">
 								<Link to="/cahl/browse">Collection</Link>
-								{/* <a href="/browse">Collection</a> */}
 						</ul>
 					</li>
+					*/}
 
 					<li className="">
 						<Link to="/explore">Explore</Link>
