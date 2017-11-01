@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 
 const Header = props => (
 	<div
@@ -15,9 +17,10 @@ const Header = props => (
 				<span className="icon-bar"></span>
 				<span className="icon-bar"></span>
 			</button>
-			<a className="navbar-brand" href="/">The Charlie Archive the Harvard Libraries</a>
+			<Link className="navbar-brand" to="/">The Charlie Archive the Harvard Libraries</Link>
 		</div>
 
+		{/*
 		<div className="collapse navbar-collapse" id="user-util-collapse">
 			<ul className="nav navbar-nav pull-right">
 		    <li>
@@ -36,6 +39,7 @@ const Header = props => (
 				</li>
 			</ul>
 		</div>
+		*/}
 	</div>
 </div>
 );
