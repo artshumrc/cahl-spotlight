@@ -48,7 +48,7 @@ const getHULItemImgSrc = HULItem => {
 		&& HULItem.relatedItem.location[0].url
 		&& HULItem.relatedItem.location[0].url.length > 1
 	) {
-		HULItem.relatedItem.location[0].url[1]['#text']
+		imgSrc = HULItem.relatedItem.location[0].url[1]['#text']
 	}
 
 
