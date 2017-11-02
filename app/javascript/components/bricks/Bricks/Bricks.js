@@ -1,5 +1,6 @@
 import React from 'react';
 import Bricks from 'bricks.js';
+import { Link } from 'react-router';
 
 import { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc } from '../../../lib/parseHULItemData';
 
@@ -9,10 +10,6 @@ class _Bricks extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-
-	// componentWillUpdate() {
-	// 	this.initializeBricks();
-	// }
 
 	componentDidMount() {
 		this.initializeBricks();
@@ -57,9 +54,9 @@ class _Bricks extends React.Component {
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
 								{imgSrc ?
-	          			<a data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
+	          			<Link data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
 	          				<img src={imgSrc} alt="Default" />
-	          			</a>
+	          			</Link>
 								: ''}
 	          		<div className="caption">
 	          			<a data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>

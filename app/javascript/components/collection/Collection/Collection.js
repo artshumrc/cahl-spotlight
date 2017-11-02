@@ -46,7 +46,7 @@ class Collection extends React.Component {
 				</div>
 
 				<div className="row">
-					{/* search result amount shouldn't be hardcoded */}
+					{/* collection amount shouldn't be hardcoded */}
 					<div className="col-md-12">
 						<h1>
 							Collection
@@ -89,9 +89,9 @@ class Collection extends React.Component {
 								items={collectionItems}
 								loaded
 							/>
-							{this.state.pageOfItems.map(item =>
+							{/* {this.state.pageOfItems.map(item =>
 							<div key={item.id}>{item.name}</div>
-							)}
+							)} */}
 							<Pagination
 								items={this.state.collectionItems}
 								onChangePage={this.onChangePage}
