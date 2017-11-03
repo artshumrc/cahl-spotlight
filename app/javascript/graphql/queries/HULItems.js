@@ -1,8 +1,8 @@
 import { gql, graphql } from 'react-apollo';
 
 const query = gql`
-	query HULItems {
-	  HULItems {
+	query HULItems($limit: Int, $start: Int, $sortBy: String) {
+	  HULItems(limit: $limit, start: $start, sortBy: $sortBy) {
 			pagination
 			items
 	  }
@@ -10,8 +10,44 @@ const query = gql`
 `;
 
 
+
 const HULItemsQuery = graphql(query, {
 	name: 'HULItemsQuery',
+	options: (props) => ({
+		variables: {
+			limit: props.limit,
+			start: props.start,
+			sortBy: props.sortBy,
+		}
+	})
 });
 
-export { HULItemsQuery };
+
+const singlequery = graphql(gql`
+	query HULItem($recordIdentifier: String) {
+		HULItem(recordIdentifier: $recordIdentifier){
+			items
+
+		}
+	}
+`, {
+	options: ({ params }) => ({
+		variables: {
+			recordIdentifier: params.recordIdentifier,
+		}
+	}),
+
+	name: 'singleItemQuery',
+	props: props => {
+		let item;
+		if (props.singleItemQuery.HULItem) {
+			item = props.singleItemQuery.HULItem.items.mods;
+		}
+		return {
+			item,
+		};
+	},
+});
+
+
+export { HULItemsQuery, singlequery };

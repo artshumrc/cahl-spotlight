@@ -19,7 +19,11 @@ const Root = ({store, history}) => (
 		<MuiThemeProvider>
 			<CookiesProvider>
 				<div>
-					<Router history={history} routes={routes} />
+					<Router
+						onUpdate={() => window.scrollTo(0, 0)}
+						history={history}
+						routes={routes}
+					/>
 					<AuthModal
 						loginMethod={login}
 						signupMethod={register}

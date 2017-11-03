@@ -7,6 +7,10 @@
   .navbar-toggler-icon {
     background-image: $navbar-light-toggler-icon-bg;
   }
+
+}
+.sidenav.contacts .contact-photo + div[itemprop] ~ div[itemprop] {
+	margin: 8px 0 8px 5px !important;
 }
 
 .facets-toggleable {
