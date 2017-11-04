@@ -30,7 +30,10 @@ class Collection extends React.Component {
 	render() {
 		let collectionItems = [];
 
-		if (this.props.HULItemsQuery.HULItems) {
+		if (
+			this.props.HULItemsQuery.HULItems
+		&& this.props.HULItemsQuery.HULItems.items
+		) {
 			collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
 		}
 
@@ -85,18 +88,28 @@ class Collection extends React.Component {
 							</div>
 						</div>
 						<div id="documents" className="row collectionItems">
-							<Bricks
-								items={collectionItems}
-								loaded
-							/>
+							{collectionItems.length ?
+								<div>
+									<Bricks
+										items={collectionItems}
+										loaded
+									/>
+									<Pagination
+										items={this.state.collectionItems}
+										onChangePage={this.onChangePage}
+										currentPage={parseInt(this.props.currentPage, 10)}
+									/>
+								</div>
+							:
+								<div className="no-items-found">
+									<h2>
+										No results found for your search.
+									</h2>
+								</div>
+							}
 							{/* {this.state.pageOfItems.map(item =>
 							<div key={item.id}>{item.name}</div>
 							)} */}
-							<Pagination
-								items={this.state.collectionItems}
-								onChangePage={this.onChangePage}
-								currentPage={parseInt(this.props.currentPage, 10)}
-							/>
 						</div>
 
 						{/* <div className="row record-padding">

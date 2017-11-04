@@ -27,6 +27,7 @@ class Browse extends React.Component {
 	render() {
 		let pageN = this.props.params.pageN || 1;
 		const start = (parseInt(pageN, 10) - 1) * this.state.limit;
+		const textsearch = this.props.router.location.query.textsearch;
 
 		return (
 			<SpotlightLayout>
@@ -38,6 +39,7 @@ class Browse extends React.Component {
 						limit={this.state.limit}
 						start={start}
 						currentPage={pageN}
+						textsearch={textsearch}
 					/>
 				</div>
 			</SpotlightLayout>
