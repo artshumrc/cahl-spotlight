@@ -9,10 +9,19 @@ class _Bricks extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = { imageStatus: 'loading' };
 	}
 
 	componentDidMount() {
 		this.initializeBricks();
+	}
+
+	handleImageErrored() {
+		this.setState({ imageStatus: 'failed to load' });
+	}
+
+	handleImageLoaded() {
+		this.setState({ imageStatus: 'loaded' });
 	}
 
 	initializeBricks() {
@@ -54,14 +63,18 @@ class _Bricks extends React.Component {
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
 								{imgSrc ?
-	          			<Link data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
-	          				<img src={imgSrc} alt="Default" />
+	          			<Link to={`/catalog/${recordIdentifier}`}>
+	          				<img src={imgSrc}
+												alt="Default"
+												onLoad={this.handleImageLoaded.bind(this)}
+												onError={this.handleImageErrored.bind(this)}
+											/>
 	          			</Link>
 								: ''}
 	          		<div className="caption">
-	          			<a data-context-href="/catalog/" href={`/catalog/${recordIdentifier}`}>
+	          			<Link to={`/catalog/${recordIdentifier}`}>
 	          				{name}
-	          			</a>
+	          			</Link>
 	          		</div>
 	          	</div>
 	          </div>

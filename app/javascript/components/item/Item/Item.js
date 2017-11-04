@@ -2,6 +2,9 @@ import React from 'react';
 import { browserHistory, Link } from 'react-router';
 import { singlequery } from '../../../graphql/queries/HULItems';
 
+const goBack = () => {
+  window.history.back()
+}
 
 const Item = props => {
   console.log(props)
@@ -9,6 +12,7 @@ const Item = props => {
   if ( !item ) {
     return null
   }
+
 
   return (
 		<div className="itemShow" >
@@ -26,14 +30,16 @@ const Item = props => {
           <div id="content" className="col-md-9 col-sm-8 show-document">
             <div id="previousNextDocument" className="pagination-search-widgets">
               <div className="page_links">
-                <a data-context-href="/catalog/by513hz9610/track?counter=0&amp;search_id=22810549" className="previous" rel="prev" href="/catalog/">« Previous</a> |
+
+                {/* ***** links to Prev/Next non-functional for the moment ******  */}
+                {/* <a data-context-href="/catalog/by513hz9610/track?counter=0&amp;search_id=22810549" className="previous" rel="prev" href="/catalog/">« Previous</a> |
 
                 <strong>X</strong> of <strong>4856</strong> |
 
-                <a data-context-href="/catalog/wb507sk3243/track?counter=2&amp;search_id=22810549" className="next" rel="next" href="/1947-partition/catalog/wb507sk3243">Next »</a>
+                <a data-context-href="/catalog/wb507sk3243/track?counter=2&amp;search_id=22810549" className="next" rel="next" href="/catalog/">Next »</a> */}
               </div>
               <div className="pull-right search-widgets">
-                <a className="btn" onClick={browserHistory.goBack} href="">Back to Collection</a>
+                <Link onClick={goBack} className="btn">Back to Collection</Link>
               </div>
             </div>
 
@@ -43,7 +49,7 @@ const Item = props => {
                 <h1 itemProp="name">Title of Item Here</h1>
                 <div className="oembed-widget">
                   <div>
-                    <img src={item.relatedItem.location[0].url[1]['#text']}/>
+                    <img id="itemViewImage" src={item.relatedItem.location[0].url[1]['#text']}/>
                   </div>
                 </div>
 
@@ -54,31 +60,27 @@ const Item = props => {
                         <div className="blacklight-heatmaps-show-map-wrapper"></div>
                       </dd>
                 	    <dt className="blacklight-title_full_display">Title:</dt>
-                	    <dd className="blacklight-title_full_display">Title, Date</dd>
+                	    <dd className="blacklight-title_full_display">{item.titleInfo.title}</dd>
                 	    <dt className="blacklight-author_person_full_display">Author:</dt>
-                	    <dd className="blacklight-author_person_full_display">Various Authors/Artists</dd>
-                	    <dt className="blacklight-author_no_collector_ssim">Author (no Collectors):</dt>
-                	    <dd className="blacklight-author_no_collector_ssim">Lorem Ipsum</dd>
+                	    <dd className="blacklight-author_person_full_display">{item.name.namePart}</dd>
                 	    <dt className="blacklight-summary_display">Description:</dt>
                 	    <dd className="blacklight-summary_display">Lorem Ipsum</dd>
                 	    <dt className="blacklight-topic_display">Topic:</dt>
-                	    <dd className="blacklight-topic_display">Lorem Ipsum </dd>
+                	    <dd className="blacklight-topic_display">{item.subject.topic}</dd>
                 	    <dt className="blacklight-language">Language:</dt>
-                	    <dd className="blacklight-language">French, English</dd>
+
+                      {/* need a function to prettify "languageOfCataloging" */}
+                	    <dd className="blacklight-language">{item.recordInfo.languageOfCataloging.languageTerm}</dd>
                 	    <dt className="blacklight-physical">Physical Description:</dt>
-                	    <dd className="blacklight-physical">Lorem Ipsum</dd>
-                	    <dt className="blacklight-pub_display">Publication Info:</dt>
-                	    <dd className="blacklight-pub_display">Paris, France</dd>
+                	    <dd className="blacklight-physical">{item.relatedItem.typeOfResource}</dd>
+
+                      {/* ******* not all items have physicalLocation values ******* */}
+                	    {/* <dt className="blacklight-pub_display">Physical Location:</dt>
+                	    <dd className="blacklight-pub_display">{item.location.physicalLocation["#text"]}</dd> */}
                 	    <dt className="blacklight-pub_year_w_approx_isi">Date:</dt>
-                	    <dd className="blacklight-pub_year_w_approx_isi">2015</dd>
-                	    <dt className="blacklight-pub_year_no_approx_isi">Date (no approx):</dt>
-                	    <dd className="blacklight-pub_year_no_approx_isi">2015</dd>
-                	    <dt className="blacklight-imprint_display">Imprint:</dt>
-                	    <dd className="blacklight-imprint_display">Lorem Ipsum Date String</dd>
-                	    <dt className="blacklight-genre_ssim">Genre:</dt>
-                	    <dd className="blacklight-genre_ssim">Lorem Ipsum</dd>
+                	    <dd className="blacklight-pub_year_w_approx_isi">{item.originInfo.dateCreated[2]}</dd>
                 	    <dt className="blacklight-identifier_ssim">Identifier:</dt>
-                	    <dd className="blacklight-identifier_ssim">recordIdentifier # here </dd>
+                	    <dd className="blacklight-identifier_ssim">{item.recordInfo.recordIdentifier["#text"]} </dd>
                 </dl>
 
 {/*  snippet cut from the next div: style="display: none;" */}
