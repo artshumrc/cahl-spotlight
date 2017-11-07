@@ -30,7 +30,10 @@ class Collection extends React.Component {
 	render() {
 		let collectionItems = [];
 
-		if (this.props.HULItemsQuery.HULItems) {
+		if (
+			this.props.HULItemsQuery.HULItems
+		&& this.props.HULItemsQuery.HULItems.items
+		) {
 			collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
 		}
 
@@ -63,10 +66,10 @@ class Collection extends React.Component {
 									</button>
 
 									<ul className="dropdown-menu" role="menu">
-										<li><a href="/cahl/browse/">title</a></li>
-										<li><a href="/cahl/browse/">author</a></li>
-										<li><a href="/cahl/browse/">year (new to old)</a></li>
-										<li><a href="/cahl/browse/">year (old to new)</a></li>
+										<li><a >title</a></li>
+										<li><a >author</a></li>
+										<li><a >year (new to old)</a></li>
+										<li><a >year (old to new)</a></li>
 									</ul>
 								</div>
 								<div id="sort-dropdown" className="btn-group">
@@ -85,18 +88,28 @@ class Collection extends React.Component {
 							</div>
 						</div>
 						<div id="documents" className="row collectionItems">
-							<Bricks
-								items={collectionItems}
-								loaded
-							/>
+							{collectionItems.length ?
+								<div>
+									<Bricks
+										items={collectionItems}
+										loaded
+									/>
+									<Pagination
+										items={this.state.collectionItems}
+										onChangePage={this.onChangePage}
+										currentPage={parseInt(this.props.currentPage, 10)}
+									/>
+								</div>
+							:
+								<div className="no-items-found">
+									<h2>
+										No results found for your search.
+									</h2>
+								</div>
+							}
 							{/* {this.state.pageOfItems.map(item =>
 							<div key={item.id}>{item.name}</div>
 							)} */}
-							<Pagination
-								items={this.state.collectionItems}
-								onChangePage={this.onChangePage}
-								currentPage={parseInt(this.props.currentPage, 10)}
-							/>
 						</div>
 
 						{/* <div className="row record-padding">
@@ -107,28 +120,28 @@ class Collection extends React.Component {
 											<a rel="prev" href="#">« Previous</a>
 										</li>
 										<li>
-											<a rel="next" href="/cahl/browse/">Next »</a>
+											<a rel="next" href="/">Next »</a>
 										</li>
 										<li className="active">
 											<span>1</span>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">2</a>
+											<a rel="next" href="/">2</a>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">3</a>
+											<a rel="next" href="/">3</a>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">4</a>
+											<a rel="next" href="/">4</a>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">5</a>
+											<a rel="next" href="/">5</a>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">6</a>
+											<a rel="next" href="/">6</a>
 										</li>
 										<li className="">
-											<a rel="next" href="/cahl/browse/">...</a>
+											<a rel="next" href="/">...</a>
 										</li>
 									</ul>
 								</div>
