@@ -53,7 +53,7 @@ class Masthead extends React.Component {
 									Collection <b className="caret" />
 								</a>
 								<ul className="dropdown-menu">
-										<Link to="/cahl/browse">Collection</Link>
+										<Link to="/">Collection</Link>
 								</ul>
 							</li>
 							*/}

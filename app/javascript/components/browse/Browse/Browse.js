@@ -8,7 +8,7 @@ class Browse extends React.Component {
 		super(props);
 
 		this.state = {
-			sortBy: 'recordIdentifier',
+			// sortBy: 'recordIdentifier',
 			limit: 50,
 		};
 
