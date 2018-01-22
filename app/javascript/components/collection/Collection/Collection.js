@@ -57,7 +57,7 @@ class Collection extends React.Component {
 						</h1>
 					</div>
 
-					<div className="col-md-12">
+					<div>
 						<div id="sortAndPerPage" className="clearfix">
 							<div className="search-widgets pull-right">
 								<div id="sort-dropdown" className="btn-group">
@@ -87,7 +87,7 @@ class Collection extends React.Component {
 								</div>
 							</div>
 						</div>
-						<div id="documents" className="row collectionItems">
+						<div className="row collectionItems">
 							{collectionItems.length ?
 								<div>
 									<Bricks

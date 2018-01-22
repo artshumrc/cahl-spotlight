@@ -42,18 +42,35 @@ const getHULItemRecordIdentifier = HULItem => {
 const getHULItemImgSrc = HULItem => {
 	let imgSrc = false;
 
+
 	if (HULItem.relatedItem
-		&& HULItem.relatedItem.location
-		&& HULItem.relatedItem.location.length
-		&& HULItem.relatedItem.location[0].url
-		&& HULItem.relatedItem.location[0].url.length > 1
+		&& HULItem.relatedItem.length
+		&& HULItem.relatedItem[0].location
+		&& HULItem.relatedItem[0].location.length > 1
+		&& HULItem.relatedItem[0].location[0].url
+		&& HULItem.relatedItem[0].location[0].url.length > 1
 	) {
-		imgSrc = HULItem.relatedItem.location[0].url[1]['#text']
+		imgSrc = HULItem.relatedItem[0].location[0].url[0]['#text']
 	}
 
+	return imgSrc;
+};
+
+const getHULItemImgThumbnailSrc = HULItem => {
+	let imgSrc = false;
+
+	if (HULItem.relatedItem
+		&& HULItem.relatedItem.length
+		&& HULItem.relatedItem[0].location
+		&& HULItem.relatedItem[0].location.length > 1
+		&& HULItem.relatedItem[0].location[0].url
+		&& HULItem.relatedItem[0].location[0].url.length > 1
+	) {
+		imgSrc = HULItem.relatedItem[0].location[0].url[1]['#text']
+	}
 
 	return imgSrc;
 };
 
 
-export { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc };
+export { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc, getHULItemImgThumbnailSrc };

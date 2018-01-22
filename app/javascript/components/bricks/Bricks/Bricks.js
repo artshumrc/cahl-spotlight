@@ -32,6 +32,8 @@ class _Bricks extends React.Component {
         { columns: 2, gutter: 20 },
         { mq: '200px', columns: 3, gutter: 20 },
         { mq: '300px', columns: 4, gutter: 20 },
+        { mq: '400px', columns: 5, gutter: 20 },
+        { mq: '500px', columns: 6, gutter: 20 },
 			],
 			position: true,
 		});
@@ -59,16 +61,28 @@ class _Bricks extends React.Component {
 					const name = getHULItemName(item);
 					const recordIdentifier = getHULItemRecordIdentifier(item);
 					const imgSrc = getHULItemImgSrc(item);
+
+					// TODO: Temporary workaround for items without images. Reorient design when applicable for nonimage
+					// items
+					if (!imgSrc) {
+						return null;
+					}
+
 					return (
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
 								{imgSrc ?
 	          			<Link to={`/catalog/${recordIdentifier}`}>
-	          				<img src={imgSrc}
-												alt="Default"
-												onLoad={this.handleImageLoaded.bind(this)}
-												onError={this.handleImageErrored.bind(this)}
-											/>
+	          				<img
+											src={imgSrc}
+											alt="Default"
+											onLoad={this.handleImageLoaded.bind(this)}
+											onError={this.handleImageErrored.bind(this)}
+											style={{
+												width: '100%',
+												height: 'auto',
+											}}
+										/>
 	          			</Link>
 								: ''}
 	          		<div className="caption">
