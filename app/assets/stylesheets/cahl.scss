@@ -46,4 +46,23 @@
 
 img#itemViewImage {
   max-width: 530px;
+
+}
+
+.itemImage {
+	padding: 20px 0;
+}
+
+#document h1 {
+	line-height: 1.5em;
+}
+
+.itemImageMeta {
+	label, span {
+		display: inline-block;
+		vertical-align: top;
+	}
+	span {
+		padding-left: 10px;
+	}
 }

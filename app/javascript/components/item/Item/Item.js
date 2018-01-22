@@ -28,40 +28,39 @@ const Item = props => {
               </div>
             </div>
             <div id="document" className="document blacklight-file">
-                <h1 itemProp="name">{item.titleInfo.title} ({recordIdentifier})</h1>
-                <div className="itemImage">
-                  <img id="itemViewImage" src={imgSrc}/>
-                </div>
-                <div className="itemImageMetaList">
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-author_person_full_display">Author:</label>
-	            	    <span className="blacklight-author_person_full_display">{name}</span>
-									</div>
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-topic_display">Topic:</label>
-	            	    <span className="blacklight-topic_display">{item.subject.topic}</span>
-									</div>
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-language">Language:</label>
-	            	    <span className="blacklight-language">{item.recordInfo.languageOfCataloging.languageTerm}</span>
-									</div>
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-physical">Physical Description:</label>
-	            	    <span className="blacklight-physical">{item.relatedItem.typeOfResource}</span>
-									</div>
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-pub_year_w_approx_isi">Date:</label>
-	            	    <span className="blacklight-pub_year_w_approx_isi">{item.originInfo.dateCreated[2]}</span>
-									</div>
-									<div className="itemImageMeta">
-	            	    <label className="blacklight-identifier_ssim">Identifier:</label>
-	            	    <span className="blacklight-identifier_ssim">{recordIdentifier} </span>
-									</div>
-                </div>
-                <div className="col-md-12 comments-contents">
-                 <h3 className="col-md-9">Comments</h3>
-                 <div className="col-md-9 comments-list"></div>
-                </div>
+              <h1 itemProp="name">{item.titleInfo.title} ({recordIdentifier})</h1>
+              <div className="itemImage">
+                <img id="itemViewImage" src={imgSrc}/>
+              </div>
+              <div className="itemImageMetaList">
+								<div className="itemImageMeta">
+            	    <label className="blacklight-author_person_full_display">Author:</label>
+            	    <span className="blacklight-author_person_full_display">{name}</span>
+								</div>
+								<div className="itemImageMeta">
+            	    <label className="blacklight-topic_display">Topic:</label>
+            	    <span className="blacklight-topic_display">{item.subject.topic}</span>
+								</div>
+								<div className="itemImageMeta">
+            	    <label className="blacklight-language">Language:</label>
+            	    <span className="blacklight-language">{item.recordInfo.languageOfCataloging.languageTerm}</span>
+								</div>
+								<div className="itemImageMeta">
+            	    <label className="blacklight-physical">Physical Description:</label>
+            	    <span className="blacklight-physical">{item.relatedItem.typeOfResource}</span>
+								</div>
+								<div className="itemImageMeta">
+            	    <label className="blacklight-pub_year_w_approx_isi">Date:</label>
+            	    <span className="blacklight-pub_year_w_approx_isi">{item.originInfo.dateCreated[2]}</span>
+								</div>
+								<div className="itemImageMeta">
+            	    <label className="blacklight-identifier_ssim">Identifier:</label>
+            	    <span className="blacklight-identifier_ssim">{recordIdentifier} </span>
+								</div>
+              </div>
+              <div className="col-md-12 comments-contents">
+								<h3 className="col-md-9">Comments</h3>
+								<div className="col-md-9 comments-list"></div>
               </div>
             </div>
           </div>
