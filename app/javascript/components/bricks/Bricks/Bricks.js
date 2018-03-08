@@ -2,7 +2,7 @@ import React from 'react';
 import Bricks from 'bricks.js';
 import { Link } from 'react-router';
 
-import { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc } from '../../../lib/parseHULItemData';
+import { getItemName, getItemRecordIdentifier, getItemImgSrc } from '../../../lib/parseItemData';
 
 
 class _Bricks extends React.Component {
@@ -58,14 +58,14 @@ class _Bricks extends React.Component {
 			<div className={`bricks ${loaded ? '' : 'loading'}`}>
         <div className="bricks-inner">
         {items.map((item, i) => {
-					const name = getHULItemName(item);
-					const recordIdentifier = getHULItemRecordIdentifier(item);
-					const imgSrc = getHULItemImgSrc(item);
+					const name = getItemName(item);
+					const recordIdentifier = getItemRecordIdentifier(item);
+					const imgSrc = getItemImgSrc(item);
 
 					// TODO: Temporary workaround for items without images. Reorient design when applicable for nonimage
 					// items
 					if (!imgSrc) {
-						return null;
+						// return null;
 					}
 
 					return (

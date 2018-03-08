@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
-import { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc } from '../../../lib/parseHULItemData';
+import { getItemName, getItemRecordIdentifier, getItemImgSrc } from '../../../lib/parseItemData';
 
 
 const Item = props => {
@@ -11,9 +11,9 @@ const Item = props => {
     return null
   }
 
-	const name = getHULItemName(item);
-	const recordIdentifier = getHULItemRecordIdentifier(item);
-	const imgSrc = getHULItemImgSrc(item);
+	const name = getItemName(item);
+	const recordIdentifier = getItemRecordIdentifier(item);
+	const imgSrc = getItemImgSrc(item);
 	console.log('item', item);
 
   return (

@@ -1,23 +1,30 @@
 import React from 'react';
 import { compose } from 'react-apollo';
+import autoBind from 'react-autobind';
+import { withRouter } from 'react-router';
+
 import itemsQuery from '../../graphql/queries/items';
 import Collection from '../../components/collection/Collection';
+
 
 class CollectionContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		autoBind(this);
-
-		this.state = {
-			limit: 10,
-		};
 	}
 
 	handleLimitChange(value) {
+
 	}
+
+	handleSortChange(value) {
+
+	}
+
 
 	render() {
 		let items = [];
+		let total = 0;
 
 		if (
 			!this.props.itemsQuery.loading
@@ -25,11 +32,15 @@ class CollectionContainer extends React.Component {
 		&& this.props.itemsQuery.items.items
 		) {
 			items = this.props.itemsQuery.items.items;
+			total = this.props.itemsQuery.items.total;
 		}
 
 		return (
 			<Collection
 				items={items}
+				total={total}
+				handleLimitChange={this.handleLimitChange}
+				handleSortChange={this.handleSortChange}
 			/>
 		);
 	}
@@ -37,4 +48,5 @@ class CollectionContainer extends React.Component {
 
 export default compose(
 	itemsQuery,
+	withRouter
 )(CollectionContainer);
