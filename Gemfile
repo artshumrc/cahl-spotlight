@@ -88,4 +88,6 @@ gem 'mirador_rails'
 gem 'traject'
 gem 'jsonpath'
 gem 'bibtex-ruby'
+gem "rack-timeout"
+gem 'rails-ujs'
 # gem 'blacklight-spotlight', github: 'projectblacklight/spotlight'

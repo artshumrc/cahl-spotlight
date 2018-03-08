@@ -42,6 +42,11 @@ const getHULItemRecordIdentifier = HULItem => {
 const getHULItemImgSrc = HULItem => {
 	let imgSrc = false;
 
+	// TODO: adapt with DRS extension
+	// file delivery url
+	// same as Full image
+	// parameters to get the thumbnail
+
 
 	if (HULItem.relatedItem
 		&& HULItem.relatedItem.length

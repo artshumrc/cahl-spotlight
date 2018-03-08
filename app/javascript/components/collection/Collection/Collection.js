@@ -1,42 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 import Bricks from '../../bricks/Bricks/Bricks.js';
 import Pagination from '../../common/pagination/Pagination/Pagination.js';
 
+
 class Collection extends React.Component {
-	constructor() {
-		super();
-		// let collectionItems = [];
-		//
-		// if (this.props.HULItemsQuery.HULItems) {
-		// 	collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
-		// }
-
-		let collectionItems = _.range(1, 4857).map(i => {
-			return { id: i, name: 'Item ' + i };
-		});
-
-		this.state = {
-			collectionItems: collectionItems,
-			pageOfItems: []
-		};
-
-		this.onChangePage = this.onChangePage.bind(this);
-	}
-
-	onChangePage(pageOfItems) {
-		this.setState({ pageOfItems: pageOfItems });
-	}
 
 	render() {
-		let collectionItems = [];
-
-		if (
-			this.props.HULItemsQuery.HULItems
-		&& this.props.HULItemsQuery.HULItems.items
-		) {
-			collectionItems = this.props.HULItemsQuery.HULItems.items.mods;
-		}
-
+		const { items, total } = this.props;
 
 		return (
 			<div id="main-container" className="container">
@@ -88,16 +60,11 @@ class Collection extends React.Component {
 							</div>
 						</div>
 						<div className="row collectionItems">
-							{collectionItems.length ?
+							{items.length ?
 								<div>
 									<Bricks
-										items={collectionItems}
+										items={items}
 										loaded
-									/>
-									<Pagination
-										items={this.state.collectionItems}
-										onChangePage={this.onChangePage}
-										currentPage={parseInt(this.props.currentPage, 10)}
 									/>
 								</div>
 							:
@@ -154,4 +121,4 @@ class Collection extends React.Component {
 	}
 }
 
-export default Collection;
+export default withRouter(Collection);

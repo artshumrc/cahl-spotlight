@@ -72,7 +72,7 @@ class _Bricks extends React.Component {
 	          <div key={`${name}-${i}`} className="brick" >
 	          	<div className="thumbnail">
 								{imgSrc ?
-	          			<Link to={`/catalog/${recordIdentifier}`}>
+	          			<Link to={`/item/${recordIdentifier}`}>
 	          				<img
 											src={imgSrc}
 											alt="Default"
@@ -86,7 +86,7 @@ class _Bricks extends React.Component {
 	          			</Link>
 								: ''}
 	          		<div className="caption">
-	          			<Link to={`/catalog/${recordIdentifier}`}>
+	          			<Link to={`/item/${recordIdentifier}`}>
 	          				{name}
 	          			</Link>
 	          		</div>

@@ -27,3 +27,4 @@
 //= require openseadragon
 //= require spotlight
 //= require sul-exhibits-template
+//= require rails-ujs

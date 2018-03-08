@@ -18,7 +18,6 @@ const history = syncHistoryWithStore(browserHistory, store);
 injectTapEventPlugin();
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
 		<Root store={store} history={history} />,

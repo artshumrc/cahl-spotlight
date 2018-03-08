@@ -1,7 +1,6 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
-import { singlequery } from '../../../graphql/queries/HULItems';
 import { getHULItemName, getHULItemRecordIdentifier, getHULItemImgSrc } from '../../../lib/parseHULItemData';
 
 

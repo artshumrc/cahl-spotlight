@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose } from 'react-apollo';
-import { singlequery } from '../../graphql/queries/HULItems';
+import { itemQuery } from '../../graphql/queries/items';
 import SpotlightLayout from '../..//components/layouts/SpotlightLayout/SpotlightLayout.js';
 import Item from '../../components/item/Item/Item.js';
 
@@ -15,5 +15,5 @@ class ItemContainer extends React.Component {
 }
 
 export default compose(
-	singlequery,
+	itemQuery,
 )(ItemContainer);
