@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 const PaginationPage = props => (
 	<Link
 		to={{
-			pathname: '/browse',
+			pathname: '/',
 			query: {
 				...props.location.query,
 				page: props.page,

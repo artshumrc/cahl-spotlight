@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import _ from 'underscore';
 import PaginationButton from '../PaginationButton';
 
-import './Pagination.css';
 
 const Pagination = ({ limit, total, location }) => {
 	let numPages = Math.ceil(total / limit);

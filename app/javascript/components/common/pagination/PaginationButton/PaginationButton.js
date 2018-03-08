@@ -5,7 +5,6 @@ import PaginationNext from './PaginationNext';
 import PaginationDots from './PaginationDots';
 import PaginationFirst from './PaginationFirst';
 import PaginationLast from './PaginationLast';
-import './PaginationButton.css';
 
 class PaginationButton extends React.Component {
 
