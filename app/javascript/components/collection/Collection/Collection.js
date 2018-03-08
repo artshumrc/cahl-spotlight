@@ -1,9 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-import Pagination from '../../pagination/Pagination';
-import Bricks from '../../bricks/Bricks/Bricks.js';
-import Pagination from '../../common/pagination/Pagination/Pagination.js';
+import Bricks from '../../bricks/Bricks';
+import Pagination from '../../common/pagination/Pagination';
 
 
 class Collection extends React.Component {

@@ -1,8 +1,13 @@
-@import '../../../variables.scss';
+
+.pagination {
+	margin: 60px auto;
+	text-align: center;
+	display: block;
+}
 
 .paginationButton {
 	background: #eee;
-	color: $primary;
+	color: #666;
 	display: inline-block;
 	vertical-align: top;
 	cursor: pointer;
@@ -10,27 +15,24 @@
 	border: 2px solid #eee;
 	padding: 5px 15px;
 
-	@include transition(all 100ms ease-in-out);
-
 	&:hover {
 		background: #fff;
-		border: 2px solid $primary;
+		border: 2px solid #666;
 	}
 
 	&.isActive{
-		background: $primary;
-		border: 2px solid $primary;
-		outline: 1px solid $light;
-		color: $light;
+		background: #666;
+		border: 2px solid #666;
+		outline: 1px solid #fff;
+		color: #fff;
 		span {
-			color: $light;
+			color: #fff;
 		}
 	}
 
 	span {
 		display: inline-block;
 		vertical-align: top;
-		font-family: $font-label;
 	}
 
 	i {
@@ -38,5 +40,16 @@
 		vertical-align: top;
 		padding-top: 7px;
 		line-height: 10px;
+	}
+}
+
+.noResults {
+	text-align: left;
+
+	p {
+		width: 90%;
+		max-width: 720px;
+		font-size: 22px;
+		font-weight: 100;
 	}
 }

@@ -1,110 +1,100 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
+// import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import _ from 'underscore';
+import PaginationButton from '../PaginationButton';
 
-const propTypes = {
-	items: PropTypes.array.isRequired,
-	onChangePage: PropTypes.func.isRequired,
-	initialPage: PropTypes.number
-}
+import './Pagination.css';
 
-const defaultProps = {
-	initialPage: 1
-}
+const Pagination = ({ limit, total, location }) => {
+	let numPages = Math.ceil(total / limit);
+	let prevDots = false;
+	let nextDots = false;
+	let pages = [];
 
-class Pagination extends React.Component {
-	constructor(props) {
-		super(props);
+	if (numPages <= 1) {
+		return null;
 	}
 
-	getPager(totalItems, currentPage, pageSize) {
-		// default to first page
-		currentPage = currentPage || this.props.currentPage;
 
-		// default page size is 10
-		pageSize = pageSize || 10;
+	// TODO get active page from ReactRouter
+	const activePage = parseInt(location.query.page, 10) || 1;
 
-		// calculate total pages
-		let totalPages = Math.ceil(totalItems / pageSize);
+	// determine dots
+	if (numPages >= 9) {
+		if (activePage > 5) {
+			prevDots = true;
+		}
+		if (numPages - activePage > 5) {
+			nextDots = true;
+		}
+	}
 
-		let startPage, endPage;
-		if (totalPages <= 10) {
-			// less than 10 total pages so show all
-			startPage = 1;
-			endPage = totalPages;
+	// determine page numbers
+	if (numPages >= 9) {
+		if (activePage < 5) {
+			pages = _.range(1, 9);
+		} else if (numPages - activePage < 5) {
+			pages = _.range(numPages - 9, numPages);
 		} else {
-			// more than 10 total pages so calculate start and end pages
-			if (currentPage <= 6) {
-				startPage = 1;
-				endPage = 10;
-			} else if (currentPage + 4 >= totalPages) {
-				startPage = totalPages - 9;
-				endPage = totalPages;
-			} else {
-				startPage = currentPage - 5;
-				endPage = currentPage + 4;
-			}
+			pages = _.range(activePage - 4, activePage + 4);
 		}
-
-		// calculate start and end item indexes
-		let startIndex = (currentPage - 1) * pageSize;
-		let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
-
-		// create an array of pages to ng-repeat in the pager control
-		let pages = _.range(startPage, endPage + 1);
-
-		// return object with all pager properties required by the view
-		return {
-			totalItems,
-			currentPage,
-			pageSize,
-			totalPages,
-			startPage,
-			endPage,
-			startIndex,
-			endIndex,
-			pages,
-		};
+	} else {
+		pages = _.range(1, numPages);
 	}
 
-	render() {
+	return (
+		<div className="pagination">
+			{prevDots ?
+				<PaginationButton
+					first
+					page={1}
+				/>
+			: ''}
+			{activePage > 1 ?
+				<PaginationButton
+					prev
+				/>
+			: ''}
+			{prevDots ?
+				<PaginationButton
+					dots
+				/>
+			: ''}
+			{pages.map((page) => {
+				let isActive = false;
 
-		// create pages on each render
-		let items = this.props.items;
-		let pager = {};
+				if (activePage === page) {
+					isActive = true;
+				}
 
-		// get new pager object for specified page
-		pager = this.getPager(items.length, this.props.currentPage);
+				return (
+					<PaginationButton
+						key={page}
+						page={page}
+						isActive={isActive}
+					/>
+				);
+			})}
+			{nextDots ?
+				<PaginationButton
+					dots
+				/>
+			: ''}
+			{activePage < numPages - 1 ?
+				<PaginationButton
+					next
+				/>
+			: ''}
+			{nextDots ?
+				<PaginationButton
+					last
+					page={numPages}
+				/>
+			: ''}
+		</div>
+	);
+};
 
-		if (!pager.pages || pager.pages.length <= 1) {
 
-		  // don't display pager if there is only 1 page
-		  return null;
-		}
-
-		return (
-			<ul className="pagination">
-				<li className={pager.currentPage === 1 ? 'disabled' : ''}>
-					<Link to="/page/1">First</Link>
-				</li>
-				<li className={pager.currentPage === 1 ? 'disabled' : ''}>
-					<Link to={`/page/${pager.currentPage -1}`}>Previous</Link>
-				</li>
-				{pager.pages.map((page, index) =>
-					<li key={index} className={pager.currentPage === page ? 'active' : ''}>
-						<Link to={`/page/${page}`}>{page}</Link>
-					</li>
-				)}
-				<li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-					<Link to={`/page/${pager.currentPage + 1}`}>Next</Link>
-				</li>
-				<li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-					<Link to={`/page/${pager.totalPages}`}>Last</Link>
-				</li>
-			</ul>
-		);
-	}
-}
-
-Pagination.propTypes = propTypes;
-
-export default Pagination;
+export default withRouter(Pagination);
